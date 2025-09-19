@@ -1,4 +1,5 @@
 import mysql.connector
+import Games.Pasianssi as pasianssi
 
 yhteys = mysql.connector.connect(
         host='127.0.0.1',
@@ -10,3 +11,5 @@ yhteys = mysql.connector.connect(
         )
 
 kursori = yhteys.cursor()
+
+pasianssi.xd()

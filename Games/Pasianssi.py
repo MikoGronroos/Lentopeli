@@ -1,0 +1,2 @@
+def xd():
+    print("toimii")
