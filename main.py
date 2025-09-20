@@ -1,15 +1,5 @@
-import mysql.connector
-import Games.Pasianssi as pasianssi
+import Scripts.Core.GameLoop as gameLoop
 
-yhteys = mysql.connector.connect(
-        host='127.0.0.1',
-        port=3306,
-        database='flight_game',
-        user='root',
-        password='123456789',
-        autocommit=True
-        )
-
-kursori = yhteys.cursor()
-
-pasianssi.xd()
+while True:
+    print("xd")
+gameLoop.GameLoop()
