@@ -1,4 +1,4 @@
-import Scripts.Core.GameLoop as gameLoop
+import Scripts.Core.gameLoop as gameLoop
 
 while True:
     gameLoop.GameLoop()
