@@ -1,4 +1,4 @@
-import Card_deck as deck
+from Scripts.Games import Card_deck as deck
 
 def Game():
     print("Howdy. Down for a round of blackjack?")
