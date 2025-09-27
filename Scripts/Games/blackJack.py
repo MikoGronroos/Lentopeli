@@ -72,4 +72,3 @@ def calculateValue(cards):
             else:
                 newSum += i
     return newSum
-Game()

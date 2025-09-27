@@ -20,5 +20,3 @@ def Game():
 
     print("The game is over.")
     return
-
-Game()
