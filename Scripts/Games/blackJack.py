@@ -20,6 +20,19 @@ def stand(dealerCards, playerCards, cards):
             break
     return state
 
+def hit(playerCards, cards):
+    state = 0;
+    playerCards.append(cards.pop(0))
+    print(f"Your cards: {playerCards}")
+    if calculateValue(playerCards) > 21:
+        state = -1
+    return state
+
+def setupCards(playerCards, cards):
+    playerCards.append(cards.pop(0))
+    playerCards.append(cards.pop(0))
+
+
 
 def Game():
     print("Howdy. Down for a round of blackjack?")
@@ -29,12 +42,10 @@ def Game():
     cards = deck.Shuffle(cards)
 
     playerCards = []
-    playerCards.append(cards.pop(0))
-    playerCards.append(cards.pop(0))
+    setupCards(playerCards, cards)
 
     dealerCards = []
-    dealerCards.append(cards.pop(0))
-    dealerCards.append(cards.pop(0))
+    setupCards(dealerCards, cards)
 
     playerState = 0
 
@@ -44,11 +55,7 @@ def Game():
             break
         decision = input("Do you wish to hit or stand? hit/stand:")
         if decision == "hit":
-            playerCards.append(cards.pop(0))
-            print(f"Your cards: {playerCards}")
-            if calculateValue(playerCards) > 21:
-                playerState = -1
-                break
+            playerState = hit(playerCards, cards)
         elif decision == "stand":
             playerState = stand(dealerCards, playerCards, cards)
 
