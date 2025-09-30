@@ -1,4 +1,5 @@
-import Card_deck as deck
+from Scripts.Games import cardDeck as deck
+
 def Game():
     cards = deck.getCards()
     cards = deck.Shuffle(cards)
@@ -21,3 +22,4 @@ def Game():
     else:
         print("You guessed incorrectly.")
     return
+Game()
