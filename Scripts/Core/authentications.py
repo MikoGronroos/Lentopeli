@@ -1,7 +1,7 @@
 from ipaddress import summarize_address_range
 
 import mysql.connector
-import Scripts.Database.Database as db
+import Scripts.Database.database as db
 
 def Login():
     while True:
