@@ -13,7 +13,7 @@ def Game():
                 print("Safe.")
                 player += 1
         elif decision == "no":
-            print("You decited to stop.")
+            print("You decided to stop.")
             break
         else:
             print("Invalid input.")
