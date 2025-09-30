@@ -25,8 +25,3 @@ def poker():
                 break
             playerCards.remove(z)
 
-
-
-
-
-poker()

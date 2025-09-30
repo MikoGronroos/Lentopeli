@@ -6,6 +6,6 @@ games = {'blackjack': blackjack.Game,
          'russianroulette': russianroulette.Game}
 
 def GameLoop():
-    game = games["russianroulette"]
+    game = games["blackjack"]
     game()
     return

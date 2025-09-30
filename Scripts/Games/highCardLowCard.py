@@ -22,4 +22,3 @@ def Game():
     else:
         print("You guessed incorrectly.")
     return
-Game()

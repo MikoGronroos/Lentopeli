@@ -27,5 +27,3 @@ def roulette():
 
         if jatkaa == "n":
             break
-
-roulette()
