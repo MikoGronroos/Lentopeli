@@ -1,4 +1,4 @@
-#import Scripts.Database.Database as db
+import Scripts.Database.database as db
 import Scripts.Games.blackJack as blackjack
 import Scripts.Games.russianRoulette as russianroulette
 import os
@@ -16,3 +16,9 @@ def GameLoop():
 
     os.system('cls' if os.name == 'nt' else 'clear')
     return
+
+def NoMoreMoney(name, money):
+    if db.CheckMoney(name, money) == False:
+        print ("You lost, game over.")
+        return
+

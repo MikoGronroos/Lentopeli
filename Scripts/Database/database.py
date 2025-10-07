@@ -35,6 +35,15 @@ def CheckPassword(name, password):
 def UpdateMoney(name, money):
     sql = f"UPDATE game set money = (money + {money}) where screen_name = \'{name}\'"
     kursori.execute(sql)
-    sql2 = f"SELECT * FROM game where screen_name = \'{name}\' and money > 0"
-    kursori.execute(sql2)
+
+def CheckMoney(name, money):
+    sql = f"SELECT * FROM game where screen_name = \'{name}\' and money > 0"
+    kursori.execute(sql)
     return len(kursori.fetchall()) > 0
+
+
+
+
+
+
+
