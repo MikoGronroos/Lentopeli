@@ -47,3 +47,28 @@ def CheckMoney(name):
 
 
 
+
+def listMaker(continent):
+    continentList = ["EU", "AS", "NA", "SA", "AF", "OC"]
+    for a in range(6):
+        if continentList[a-1] == continent:
+            continentList.remove(continent)
+    return continentList
+
+def airportTaker(continent):
+    countryList = []
+    sql = f"SELECT name, latitude_deg, longitude_deg FROM airport where continent = '{continent}' and type = 'large_airport'"
+    Cursor = yhteys.cursor()
+    Cursor.execute(sql)
+    result = Cursor.fetchall()
+    randomInt = random.randint(1, Cursor.rowcount)
+    countryList.append(result)
+    print(result[randomInt])
+    return result[randomInt]
+
+def takeAllAirports():
+    continentList = listMaker(continent)
+    airportList = []
+    for i in range(5):
+        airportList.append(airportTaker(continentList[i - 1]))
+    return airportList
