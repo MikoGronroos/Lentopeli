@@ -9,16 +9,16 @@ games = {'blackjack': blackjack.Game,
 def GameLoop():
 
     amountToGamble = int(input("How much would you like to gamble? "))
-
+    db.UpdateMoney("Miko", amountToGamble)
     selectedGame = 'blackjack'
     game = games[selectedGame]
     game(amountToGamble)
 
-    os.system('cls' if os.name == 'nt' else 'clear')
+    #os.system('cls' if os.name == 'nt' else 'clear')
     return
 
-def NoMoreMoney(name, money):
-    if db.CheckMoney(name, money) == False:
+def NoMoreMoney(name):
+    if db.CheckMoney(name) == False:
         print ("You lost, game over.")
         return
 
