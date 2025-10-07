@@ -37,7 +37,7 @@ def setupCards(playerCards, cards):
 def Game(moneyToGamble):
     print("Howdy. Down for a round of blackjack?")
     print("Dealer must stand at 17, ace can be either 11 or 1.")
-
+    moneyWon = 0
     cards = deck.getBlackjackCards()
     cards = deck.Shuffle(cards)
 
@@ -63,9 +63,10 @@ def Game(moneyToGamble):
         print("You lost, I honestly expected better")
     elif playerState == 1:
         print("You won")
+        moneyWon = moneyToGamble * 2
     elif playerState == 2:
         print("Tie")
-    return
+    return moneyWon
 
 def calculateValue(cards):
     newSum = sum(i for i, j in cards)

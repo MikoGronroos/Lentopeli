@@ -3,6 +3,7 @@ def Game(moneyToGamble):
     print("Welcome to the Russian Roulette!")
     bullet = random.randint(1, 6)
     player = 1
+    moneyWon = 0
     while True:
         decision = input("Do you want to shoot yourself? (yes/no): ")
         if decision == "yes":
@@ -12,6 +13,7 @@ def Game(moneyToGamble):
             else:
                 print("Safe.")
                 player += 1
+                moneyWon = moneyWon + moneyToGamble * 1.5
         elif decision == "no":
             print("You decided to stop.")
             break
@@ -19,4 +21,4 @@ def Game(moneyToGamble):
             print("Invalid input.")
 
     print("The game is over.")
-    return
+    return moneyWon

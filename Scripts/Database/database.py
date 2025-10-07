@@ -66,7 +66,7 @@ def airportTaker(continent):
     print(result[randomInt])
     return result[randomInt]
 
-def takeAllAirports():
+def takeAllAirports(continent):
     continentList = listMaker(continent)
     airportList = []
     for i in range(5):
