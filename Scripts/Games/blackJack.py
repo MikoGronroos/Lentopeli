@@ -34,7 +34,7 @@ def setupCards(playerCards, cards):
 
 
 
-def Game():
+def Game(moneyToGamble):
     print("Howdy. Down for a round of blackjack?")
     print("Dealer must stand at 17, ace can be either 11 or 1.")
 

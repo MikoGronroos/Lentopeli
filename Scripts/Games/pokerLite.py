@@ -1,6 +1,6 @@
 import random
 
-def pokerLite():
+def pokerLite(moneyToGamble):
     pList = []
     cList = []
 

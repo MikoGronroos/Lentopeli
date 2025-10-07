@@ -1,5 +1,5 @@
 import random
-def Game():
+def Game(moneyToGamble):
     print("Welcome to the Russian Roulette!")
     bullet = random.randint(1, 6)
     player = 1

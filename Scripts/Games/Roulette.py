@@ -1,10 +1,11 @@
 import random
 
-print("Welcome to Roulette! Choose a number between 1-12.")
-print("If you bet on an even number, you will win even if the winning number is another even number")
-print("What are you betting on?")
+def roulette(moneyToGamble):
 
-def roulette():
+    print("Welcome to Roulette! Choose a number between 1-12.")
+    print("If you bet on an even number, you will win even if the winning number is another even number")
+    print("What are you betting on?")
+
     odd = [1, 3, 5, 7, 9, 11]
     even = [2, 4, 6, 8, 10, 12]
 

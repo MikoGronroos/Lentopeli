@@ -5,8 +5,6 @@
 
 import random
 
-print("Welcome traveler. Interested in a game of dice? For 1-3 coin, guess the sum of the dice correctly and your coins shall be doubled.")
-
 def dicegame():
     dicelist = []
     for i in range(3):
@@ -14,14 +12,16 @@ def dicegame():
         dicelist.append(dice)
     return dicelist
 
-dicelist = dicegame()
+def game(moneyToGamble):
 
-print(f"One of the rolled dice was {dicelist[0]} ")
+    print("Welcome traveler. Interested in a game of dice? For 1-3 coin, guess the sum of the dice correctly and your coins shall be doubled.")
 
-diceSum = sum(dicelist)
+    dicelist = dicegame()
 
+    print(f"One of the rolled dice was {dicelist[0]} ")
 
-def game():
+    diceSum = sum(dicelist)
+
     guessTracker = 0
     while True:
         guess = int(input("Guess the sum of the dice: "))
@@ -37,15 +37,4 @@ def game():
         elif guess > diceSum:
             print("youre guess is too high")
             guessTracker += 1
-
-
-
-while True:
-    game()
-    decision = input("Do you wish to continue? yes/no:")
-    if decision == "no":
-        break
-
-
-
-print("The game has ended")
+    print("The game has ended")
