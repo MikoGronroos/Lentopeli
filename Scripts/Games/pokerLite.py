@@ -8,11 +8,25 @@ def pokerLite(moneyToGamble):
     for i in range(5):
         pList.append(random.randint(1,9))
         cList.append(random.randint(3, 9))
-
+    print("Welcome to Poker Lite!")
+    print("""
+              _____
+             |A .  | _____
+             | /.\ ||A ^  | _____
+             |(_._)|| / \ ||A _  | _____
+             |  |  || \ / || ( ) ||A_ _ |
+             |____V||  .  ||(_'_)||( v )|
+                    |____V||  |  || \ / |
+                           |____V||  .  |
+                                  |____V|
+    """)
+    print("RULES: You play against one opponent and are dealt 5 numbers \n"
+          "You may choose to re-roll any numbers or keep your original hand \n"
+          "Whoever has the higher hand after re-rolling wins.")
     print(f"Your hand is: {pList}")
 
     while True:
-        reRoll = int(input("What card do you want to re-roll? (select from cards 1-5 one at a time). When you're ready select 6 as input.) "))
+        reRoll = int(input("What card do you want to re-roll? (select from cards 1-5 one at a time). When you're ready select 6 as input.) Re-roll: "))
         #print("Also mind that every time you decide to re-roll your hand is one digit smaller (e.g. from 1-5 to 1-4) ")
         if reRoll == 6:
             break
@@ -32,3 +46,4 @@ def pokerLite(moneyToGamble):
         print(f"You tied with the computer! Your scores were {sum(pList)} .")
         moneyWon = moneyToGamble
     return moneyWon
+pokerLite(1)

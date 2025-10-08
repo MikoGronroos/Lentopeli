@@ -36,7 +36,18 @@ def setupCards(playerCards, cards):
 
 def Game(moneyToGamble):
     print("Howdy. Down for a round of blackjack?")
-    print("Dealer must stand at 17, ace can be either 11 or 1.")
+    print("""
+              _____
+             |A .  | _____
+             | /.\ ||A ^  | _____
+             |(_._)|| / \ ||A _  | _____
+             |  |  || \ / || ( ) ||A_ _ |
+             |____V||  .  ||(_'_)||( v )|
+                    |____V||  |  || \ / |
+                           |____V||  .  |
+                                  |____V|
+    """)
+    print("RULES: Dealer must stand at 17, ace can be either 11 or 1.")
     moneyWon = 0
     cards = deck.getBlackjackCards()
     cards = deck.Shuffle(cards)

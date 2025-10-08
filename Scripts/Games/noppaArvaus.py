@@ -14,8 +14,19 @@ def dicegame():
 
 def game(moneyToGamble):
     moneyWon = 0
-    print("Welcome traveler. Interested in a game of dice? For 1-3 coin, guess the sum of the dice correctly and your coins shall be doubled.")
+    print("Welcome traveler. Ready to play? Guess the sum of the dice correctly and your coins shall be doubled.")
+    print(r"""
+       _______
+      /\ o o o\
+     /o \ o o o\_______
+    <    >------>   o /|
+     \ o/  o   /_____/o|
+      \/______/     |oo|
+            |   o   |o/
+            |_______|/
 
+    """)
+    print("RULES: You roll 3 dice. I will tell you the result of one of the dice you rolled. Then, you will guess the total sum of all 3 dice. ")
     dicelist = dicegame()
 
     print(f"One of the rolled dice was {dicelist[0]} ")
