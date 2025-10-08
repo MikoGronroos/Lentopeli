@@ -1,27 +1,23 @@
 import Scripts.Database.database as db
-import Scripts.Games.blackJack as blackjack
-import Scripts.Games.russianRoulette as russianroulette
 import Scripts.Core.account as account
+import Scripts.Core.gamble as gamble
+import Scripts.Core.travel as travel
 import os
 import sys
 
-games = {'blackjack': blackjack.Game,
-         'russianroulette': russianroulette.Game}
-
 def GameLoop():
-    amountToGamble = int(input("How much would you like to gamble? "))
-    db.UpdateMoney(account.name, -amountToGamble)
-    selectedGame = 'blackjack'
-    game = games[selectedGame]
-    moneyWon = game(amountToGamble)
 
-    db.UpdateMoney(account.name, moneyWon)
-    
+    os.system('cls' if os.name == 'nt' else 'clear')
     if NoMoreMoney(account.name) == False:
         print ("You lost, game over.")
         sys.exit(0)
-    else:
-        os.system('cls' if os.name == 'nt' else 'clear')
+    selection = int(input("1 to gamble, 2 to travel and 3 to exit"))
+    if selection == 1:
+        gamble.gamble()
+    if selection == 2:
+        travel.travel()
+    if selection == 3:
+        sys.exit(0)
     return
 
 def NoMoreMoney(name):
