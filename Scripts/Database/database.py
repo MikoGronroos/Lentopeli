@@ -47,7 +47,7 @@ def ResetPlayer(name):
 def listMaker(continent):
     continentList = ["EU", "AS", "NA", "SA", "AF", "OC"]
     for a in range(6):
-        if continentList[a-1] == continent:
+        if continentList[a] == continent:
             continentList.remove(continent)
     return continentList
 
@@ -66,5 +66,5 @@ def takeAllAirports(continent):
     continentList = listMaker(continent)
     airportList = []
     for i in range(5):
-        airportList.append(airportTaker(continentList[i - 1]))
+        airportList.append(airportTaker(continentList[i]))
     return airportList
