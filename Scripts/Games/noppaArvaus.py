@@ -13,7 +13,7 @@ def dicegame():
     return dicelist
 
 def game(moneyToGamble):
-
+    moneyWon = 0
     print("Welcome traveler. Interested in a game of dice? For 1-3 coin, guess the sum of the dice correctly and your coins shall be doubled.")
 
     dicelist = dicegame()
@@ -27,6 +27,7 @@ def game(moneyToGamble):
         guess = int(input("Guess the sum of the dice: "))
         if guess == diceSum:
             print("you guessed correcty")
+            moneyWon = moneyToGamble * 2
             break
         elif guessTracker == 2:
             print("you lost LOL")
@@ -38,3 +39,4 @@ def game(moneyToGamble):
             print("youre guess is too high")
             guessTracker += 1
     print("The game has ended")
+    return moneyWon

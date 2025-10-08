@@ -1,6 +1,7 @@
 from Scripts.Games import cardDeck as deck
 
 def Game(moneyToGamble):
+    moneyWon = 0
     cards = deck.getCards()
     cards = deck.Shuffle(cards)
     playerCard = cards.pop(0)
@@ -15,9 +16,10 @@ def Game(moneyToGamble):
         playerGuessedCorrectly = True
     elif answer == "Same" and playerCard == dealerCard:
         playerGuessedCorrectly = True
+        moneyWon = moneyToGamble * 2
 
     if playerGuessedCorrectly:
         print("You guessed correctly.")
     else:
         print("You guessed incorrectly.")
-    return
+    return moneyWon

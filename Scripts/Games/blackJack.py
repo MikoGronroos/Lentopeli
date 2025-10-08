@@ -63,9 +63,10 @@ def Game(moneyToGamble):
         print("You lost, I honestly expected better")
     elif playerState == 1:
         print("You won")
-        moneyWon = moneyToGamble * 2
+        moneyWon = moneyToGamble * 3
     elif playerState == 2:
         print("Tie")
+        moneyWon = moneyToGamble
     return moneyWon
 
 def calculateValue(cards):

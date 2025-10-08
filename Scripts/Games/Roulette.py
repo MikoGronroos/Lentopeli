@@ -15,12 +15,15 @@ def roulette(moneyToGamble):
         answer = int(input("What are you betting on? (1-12): "))
 
         if answer == result:
-            print("jee arvasit numeron oikein")
+            print("You guessed the number correctly!")
+            moneyWon = moneyToGamble * 4
         else:
             if answer in odd and result in odd:
-                print("Jee arvasit ryhmän oikein (odd)")
+                print("You guessed odd correctly!")
+                moneyWon = moneyToGamble + moneyToGamble // 3
             elif answer in even and result in even:
-                print("Jee arvasit ryhmän oikein (even)")
+                print("You guessed even correctly!")
+                moneyWon = moneyToGamble + moneyToGamble // 3
             else:
                 print("Hävisit betin")
 
@@ -28,3 +31,4 @@ def roulette(moneyToGamble):
 
         if jatkaa == "n":
             break
+    return moneyWon

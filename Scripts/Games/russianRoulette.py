@@ -13,7 +13,8 @@ def Game(moneyToGamble):
             else:
                 print("Safe.")
                 player += 1
-                moneyWon = moneyWon + moneyToGamble * 1.5
+                moneyWon = moneyWon + moneyToGamble // 3
+                print(f"Your winnings thus far: {moneyWon}")
         elif decision == "no":
             print("You decided to stop.")
             break

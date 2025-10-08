@@ -3,10 +3,11 @@ import random
 def pokerLite(moneyToGamble):
     pList = []
     cList = []
+    moneyWon = 0
 
     for i in range(5):
         pList.append(random.randint(1,9))
-        cList.append(random.randint(1, 9))
+        cList.append(random.randint(3, 9))
 
     print(f"Your hand is: {pList}")
 
@@ -24,7 +25,10 @@ def pokerLite(moneyToGamble):
 
     if sum(pList) > sum(cList):
         print(f"You won! Your total score was {sum(pList)} and the computer's was {sum(cList)}.")
+        moneyWon = moneyToGamble * 2
     elif sum(pList) < sum(cList):
         print(f"You lost! Your total score was {sum(pList)} and the computer's was {sum(cList)}.")
     if sum(pList) == sum(cList):
         print(f"You tied with the computer! Your scores were {sum(pList)} .")
+        moneyWon = moneyToGamble
+    return moneyWon
