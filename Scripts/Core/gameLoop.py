@@ -17,13 +17,12 @@ def GameLoop():
 
     db.UpdateMoney(account.name, moneyWon)
     
-    NoMoreMoney(account.name)
-
-    #os.system('cls' if os.name == 'nt' else 'clear')
+    if NoMoreMoney(account.name) == False:
+        print ("You lost, game over.")
+        sys.exit(0)
+    else:
+        os.system('cls' if os.name == 'nt' else 'clear')
     return
 
 def NoMoreMoney(name):
-    if db.CheckMoney(name) == False:
-        print ("You lost, game over.")
-        sys.exit(0)
-
+    return db.CheckMoney(name)

@@ -12,11 +12,6 @@ yhteys = mysql.connector.connect(
 
 kursori = yhteys.cursor()
 
-def TestiFunktio():
-    sql = f'select * from game'
-    kursori.execute(sql)
-    return kursori.fetchall()
-
 def DoesPlayerExist(name):
     sql = f'select * from game where screen_name = \'{name}\''
     kursori.execute(sql)
@@ -41,8 +36,9 @@ def CheckMoney(name):
     kursori.execute(sql)
     return len(kursori.fetchall()) > 0
 
-
-
+def ResetPlayer(name):
+    sql = f"UPDATE game set money = 100 where screen_name = \'{name}\'"   
+    kursori.execute(sql)
 
 
 
