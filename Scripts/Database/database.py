@@ -18,8 +18,8 @@ def DoesPlayerExist(name):
     return len(kursori.fetchall()) > 0
 
 def AddNewPlayer(name, password):
-    sql = f"INSERT INTO game (id, location, password, screen_name) VALUES (%s, %s, %s, %s)"
-    val = (random.randint(0,100000000), "00FA", password, name)
+    sql = f"INSERT INTO game (id, location, password, screen_name, money, newPlayer) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = (random.randint(0,100000000), None, password, name, 100, True)
     kursori.execute(sql, val)
 
 def CheckPassword(name, password):
@@ -40,9 +40,10 @@ def ResetPlayer(name):
     sql = f"UPDATE game set money = 100 where screen_name = \'{name}\'"   
     kursori.execute(sql)
 
-
-
-
+def getPlayerContinent(name):
+    sql = f'select continent from airport where screen_name = \'{name}\'' 
+    kursori.execute(sql)
+    
 
 def listMaker(continent):
     continentList = ["EU", "AS", "NA", "SA", "AF", "OC"]
@@ -53,11 +54,10 @@ def listMaker(continent):
 
 def airportTaker(continent):
     countryList = []
-    sql = f"SELECT name, latitude_deg, longitude_deg FROM airport where continent = '{continent}' and type = 'large_airport'"
-    Cursor = yhteys.cursor()
-    Cursor.execute(sql)
-    result = Cursor.fetchall()
-    randomInt = random.randint(1, Cursor.rowcount)
+    sql = f"SELECT name, latitude_deg, longitude_deg, continent FROM airport where continent = '{continent}' and type = 'large_airport'" 
+    kursori.execute(sql)
+    result = kursori.fetchall()
+    randomInt = random.randint(1, kursori.rowcount)
     countryList.append(result)
     print(result[randomInt])
     return result[randomInt]
