@@ -42,6 +42,4 @@ def Game(moneyToGamble):
             break
         else:
             print("Invalid input.")
-
-    print("The game is over.")
     return moneyWon

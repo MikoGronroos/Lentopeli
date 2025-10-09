@@ -26,7 +26,7 @@ def game(moneyToGamble):
             |_______|/
 
     """)
-    print("RULES: You roll 3 dice. I will tell you the result of one of the dice you rolled. Then, you will guess the total sum of all 3 dice. ")
+    print("RULES: You roll 3 dice. I will tell you the result of one of the dice you rolled. Then, you will guess the total sum of all 3 dice. You have 3 guesses. ")
     dicelist = dicegame()
 
     print(f"One of the rolled dice was {dicelist[0]} ")
@@ -37,17 +37,17 @@ def game(moneyToGamble):
     while True:
         guess = int(input("Guess the sum of the dice: "))
         if guess == diceSum:
-            print("you guessed correcty")
+            print("You guessed correctly!")
             moneyWon = moneyToGamble * 2
             break
         elif guessTracker == 2:
-            print("you lost LOL")
+            print("You lost!")
             break
         elif guess < diceSum:
-            print("youre guess is too low")
+            print("Your guess is too low.")
             guessTracker += 1
         elif guess > diceSum:
-            print("youre guess is too high")
+            print("Your guess is too high.")
             guessTracker += 1
-    print("The game has ended")
+
     return moneyWon

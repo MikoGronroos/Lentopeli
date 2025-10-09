@@ -31,8 +31,7 @@ def Game(moneyToGamble):
         moneyWon = moneyToGamble * 2
 
     if playerGuessedCorrectly:
-        print("You guessed correctly.")
+        print("You guessed correctly. You won!")
     else:
-        print("You guessed incorrectly.")
+        print("You guessed incorrectly. You lost!")
     return moneyWon
-Game(1)

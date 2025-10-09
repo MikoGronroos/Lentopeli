@@ -28,8 +28,8 @@ def roulette(moneyToGamble):
             else:
                 print("You lost the bet. :(")
 
-        jatkaa = input("Do you wish to continue? (yes/no): ")
+        toContinue = input("Do you wish to continue? (yes/no): ")
 
-        if jatkaa == "n":
+        if toContinue == "n":
             break
     return moneyWon
