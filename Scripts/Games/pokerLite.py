@@ -23,6 +23,7 @@ def pokerLite(moneyToGamble):
     print("RULES: You play against one opponent and are dealt 5 numbers \n"
           "You may choose to re-roll any numbers or keep your original hand \n"
           "Whoever has the higher hand after re-rolling wins.")
+    print("")
     print(f"Your hand is: {pList}")
 
     while True:
@@ -36,6 +37,8 @@ def pokerLite(moneyToGamble):
     while len(pList) < 5:
         pList.append(random.randint(1, 9))
 
+    print("")
+    print(f"Your new hand is: {pList}")
 
     if sum(pList) > sum(cList):
         print(f"You won! Your total score was {sum(pList)} and the computer's was {sum(cList)}.")
