@@ -5,5 +5,7 @@ import random
 def startNewGame():
     continentList = ["EU", "AS", "NA", "SA", "AF", "OC"]
     startingContinent = continentList[random.randint(0, len(continentList) - 1)]
-    print(startingContinent)
-
+    startingAirport = db.getRandomAirportCode(startingContinent)
+    account.continent = startingContinent
+    account.airport = startingAirport
+    db.newPlayerCreated(account.airport, account.name)

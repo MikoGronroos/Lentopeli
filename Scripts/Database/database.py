@@ -52,6 +52,21 @@ def listMaker(continent):
             continentList.remove(continent)
     return continentList
 
+def getRandomAirportCode(continent):
+    sql = f"SELECT ident FROM airport where continent = '{continent}' and type = 'large_airport'" 
+    kursori.execute(sql)
+    newList = kursori.fetchall()
+    return newList[random.randint(0, len(newList))][0]
+
+def isNewPlayer(name):
+    sql = f'select * from game where screen_name = \'{name}\' and newPlayer = true'
+    kursori.execute(sql)
+    return len(kursori.fetchall()) > 0
+
+def newPlayerCreated(location, name):
+    sql = f"UPDATE game set location = \'{location}\', newPlayer = 0 where screen_name = \'{name}'"
+    kursori.execute(sql)
+
 def airportTaker(continent):
     countryList = []
     sql = f"SELECT name, latitude_deg, longitude_deg, continent FROM airport where continent = '{continent}' and type = 'large_airport'" 
@@ -59,7 +74,6 @@ def airportTaker(continent):
     result = kursori.fetchall()
     randomInt = random.randint(1, kursori.rowcount)
     countryList.append(result)
-    print(result[randomInt])
     return result[randomInt]
 
 def takeAllAirports(continent):
