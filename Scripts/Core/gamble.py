@@ -3,13 +3,16 @@ import Scripts.Core.account as account
 import Scripts.Games.blackJack as blackjack
 import Scripts.Games.russianRoulette as russianroulette
 import os
-
+import sys
 
 games = {'blackjack': blackjack.Game,
          'russianroulette': russianroulette.Game}
 
 def gamble():
     while True:
+        if db.HasMoney(account.name) == False:
+            print("You lost the game")
+            sys.exit(0)
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"You have {db.GetPlayerMoney(account.name)} coins")
         amountToGamble = int(input("How much would you like to gamble? "))
