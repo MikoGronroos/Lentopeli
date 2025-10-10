@@ -102,7 +102,11 @@ def alreadyHasPostcard(player_id, continent):
     kursori.execute(sql)
     return len(kursori.fetchall()) > 0
 
-    
+def playerHasAllPostcards(player_id):
+    sql = f"SELECT * FROM player_postcards where player_id = \'{player_id}\'"
+    kursori.execute(sql)
+    return len(kursori.fetchall()) >= 6
+
 
 def collect_postcard(player_id, postcard_id):
     val = (player_id, postcard_id)

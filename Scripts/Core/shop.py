@@ -1,6 +1,7 @@
 import os
 import Scripts.Database.database as db
 import Scripts.Core.account as account
+import sys
 
 def shop():
     while True:
@@ -18,7 +19,11 @@ def shop():
                     print("You already have this postcard")
             else:
                 print("Not enough coins")
-            input("Press enter to continue")
+            if db.playerHasAllPostcards(account.getGameId()):
+                print("You won the game!")
+                sys.exit(0)
+            else:
+                input("Press enter to continue")
 
         if selection == 2:
             return
