@@ -42,6 +42,10 @@ def CheckMoney(name, money):
     kursori.execute(sql)
     return len(kursori.fetchall()) > 0
 
+def fly(ident, name):
+     sql = f"UPDATE game set location = \'{ident}\' where screen_name = \'{name}\'"   
+     kursori.execute(sql)
+
 def ResetPlayer(name):
     sql = f"UPDATE game set money = 100 where screen_name = \'{name}\'"   
     kursori.execute(sql)
@@ -54,7 +58,7 @@ def getPlayerContinent(name):
 
 def listMaker(continent):
     continentList = ["EU", "AS", "NA", "SA", "AF", "OC"]
-    for a in range(6):
+    for a in range(5):
         if continentList[a] == continent:
             continentList.remove(continent)
     return continentList
@@ -76,7 +80,7 @@ def newPlayerCreated(location, name):
 
 def airportTaker(continent):
     countryList = []
-    sql = f"SELECT name, latitude_deg, longitude_deg, continent FROM airport where continent = '{continent}' and type = 'large_airport'" 
+    sql = f"SELECT name, latitude_deg, longitude_deg, continent, ident FROM airport where continent = '{continent}' and type = 'large_airport'" 
     kursori.execute(sql)
     result = kursori.fetchall()
     randomInt = random.randint(1, kursori.rowcount)

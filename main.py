@@ -10,6 +10,6 @@ os.system('cls' if os.name == 'nt' else 'clear')
 
 if auth.Authenticate():
     if db.isNewPlayer(account.name):
-        start.startNewGame()
+        start.startNewGame() 
     while True:
         gameLoop.GameLoop()
