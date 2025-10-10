@@ -5,6 +5,9 @@ import sys
 
 def travel():
     while True:
+        if db.HasMoney(account.name) == False:
+            print("You run out of money")
+            sys.exit(0)
         os.system('cls' if os.name == 'nt' else 'clear') 
         airports = db.takeAllAirports(db.getPlayerContinent(account.name))
         print(f"You have {db.GetPlayerMoney(account.name)} coins")
@@ -15,12 +18,9 @@ def travel():
             print(f"{i}, name: {value[0]} and continent: {value[3]}")
         selection = int(input("select airport 1-5 or exit 6: "))
         if selection < 6 and selection > 0:
-            if db.CheckMoney(account.name, -30):
+            if db.CheckMoney(account.name, 30):
                 db.fly(airports[selection - 1][4], account.name)
-                db.UpdateMoney(account.name, 30)
-                if db.HasMoney(account.name) == False:
-                    print("You run out of money")
-                    sys.exit(0)
+                db.UpdateMoney(account.name, -30)
             else:
                 print("You do not have enough money to fly")
                 input("Press enter to continue...")

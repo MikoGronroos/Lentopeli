@@ -1,6 +1,6 @@
 import random
 
-def pokerLite(moneyToGamble):
+def Game(moneyToGamble):
     pList = []
     cList = []
     moneyWon = 0
@@ -49,4 +49,3 @@ def pokerLite(moneyToGamble):
         print(f"You tied with the computer! Your scores were {sum(pList)} .")
         moneyWon = moneyToGamble
     return moneyWon
-pokerLite(1)

@@ -2,11 +2,19 @@ import Scripts.Database.database as db
 import Scripts.Core.account as account
 import Scripts.Games.blackJack as blackjack
 import Scripts.Games.russianRoulette as russianroulette
+import Scripts.Games.noppaArvaus as noppa
+import Scripts.Games.Roulette as roulette
+import Scripts.Games.highCardLowCard as card
+import Scripts.Games.pokerLite as poker
 import os
 import sys
 
-games = {'blackjack': blackjack.Game,
-         'russianroulette': russianroulette.Game}
+games = {'AF': blackjack.Game,
+         'AS': russianroulette.Game,
+         'EU': poker.Game,
+         'NA': roulette.Game,
+         'SA': noppa.Game,
+         'OC': card.Game}
 
 def gamble():
     while True:
@@ -19,10 +27,9 @@ def gamble():
         while True:
             amountToGamble = int(input("How much would you like to gamble? "))
             if db.CheckMoney(account.name, amountToGamble):
-                print("Xd1")
                 break
         db.UpdateMoney(account.name, -amountToGamble)
-        selectedGame = 'blackjack'
+        selectedGame = db.getPlayerContinent(account.name)
         game = games[selectedGame]
         moneyWon = game(amountToGamble)
 

@@ -12,7 +12,7 @@ def dicegame():
         dicelist.append(dice)
     return dicelist
 
-def game(moneyToGamble):
+def Game(moneyToGamble):
     moneyWon = 0
     print("Welcome traveler. Ready to play? Guess the sum of the dice correctly and your coins shall be doubled.")
     print(r"""

@@ -91,7 +91,7 @@ def airportTaker(continent):
     sql = f"SELECT name, latitude_deg, longitude_deg, continent, ident FROM airport where continent = '{continent}' and type = 'large_airport'" 
     kursori.execute(sql)
     result = kursori.fetchall()
-    randomInt = random.randint(1, kursori.rowcount)
+    randomInt = random.randint(0, kursori.rowcount - 1)
     countryList.append(result)
     return result[randomInt]
 
