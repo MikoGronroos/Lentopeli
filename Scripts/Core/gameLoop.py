@@ -27,4 +27,4 @@ def GameLoop():
     return
 
 def NoMoreMoney(name):
-    return db.CheckMoney(name)
+    return db.CheckMoney(name, 0)

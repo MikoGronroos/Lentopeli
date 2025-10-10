@@ -31,8 +31,8 @@ def UpdateMoney(name, money):
     sql = f"UPDATE game set money = (money + {money}) where screen_name = \'{name}\'"
     kursori.execute(sql)
 
-def CheckMoney(name):
-    sql = f"SELECT * FROM game where screen_name = \'{name}\' and money > 0"
+def CheckMoney(name, money):
+    sql = f"SELECT * FROM game where screen_name = \'{name}\' and money >= {money}"
     kursori.execute(sql)
     return len(kursori.fetchall()) > 0
 
@@ -96,9 +96,15 @@ def getPostcardId(continent):
     postcard_id = postcard[0]
     return postcard_id
 
+def alreadyHasPostcard(player_id, continent):
+    value = getPostcardId(continent)
+    sql = f"SELECT * FROM player_postcards where player_id = \'{player_id}\' and postcard_id =  \'{value}\' "
+    kursori.execute(sql)
+    return len(kursori.fetchall()) > 0
+
+    
 
 def collect_postcard(player_id, postcard_id):
-    print(f"{player_id},{postcard_id}")
     val = (player_id, postcard_id)
     sql = "INSERT IGNORE INTO player_postcards (player_id, postcard_id) VALUES (%s, %s)"
 
