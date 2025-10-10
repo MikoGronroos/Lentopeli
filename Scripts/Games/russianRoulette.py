@@ -25,17 +25,18 @@ def Game(moneyToGamble):
           "The longer you play, the higher the reward, but the risk increases with each shot. ")
     bullet = random.randint(1, 6)
     player = 1
-    moneyWon = 0
+    moneyWon = moneyToGamble
     while True:
         decision = input("Do you wish to shoot yourself? (yes/no): ")
         if decision == "yes":
             if bullet == player:
                 print("You got shot. Game over.")
+                moneyWon = 0
                 break
             else:
                 print("Safe.")
                 player += 1
-                moneyWon = moneyWon + moneyToGamble // 3
+                moneyWon = moneyWon * 1.3
                 print(f"Your winnings thus far: {moneyWon}")
         elif decision == "no":
             print("You decided to stop. Game over.")
