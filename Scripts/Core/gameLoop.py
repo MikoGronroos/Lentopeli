@@ -3,6 +3,7 @@ import Scripts.Core.account as account
 import Scripts.Core.gamble as gamble
 import Scripts.Core.travel as travel
 import Scripts.Core.inventory as inventory
+import Scripts.Core.shop as shop
 import os
 import sys
 
@@ -20,7 +21,7 @@ def GameLoop():
     if selection == 3:
         inventory.showInventory()
     if selection == 4:
-        return
+        shop.shop()
     if selection == 5:
         sys.exit(0)
     return
