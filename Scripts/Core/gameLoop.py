@@ -11,7 +11,7 @@ def GameLoop():
     if NoMoreMoney(account.name) == False:
         print ("You lost, game over.")
         sys.exit(0)
-    selection = int(input("1 to gamble, 2 to travel and 3 to exit"))
+    selection = int(input("1 to gamble, 2 to travel, 3 to inventory, 4 to shop and 5 to exit"))
     if selection == 1:
         gamble.gamble()
     if selection == 2:
