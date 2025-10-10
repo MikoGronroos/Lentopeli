@@ -15,6 +15,7 @@ def shop():
                     print("You bought the postcard")
                     value = db.getPostcardId(db.getPlayerContinent(account.name))
                     db.collect_postcard(account.getGameId(), value)
+                    db.UpdateMoney(account.name, -25)
                 else:
                     print("You already have this postcard")
             else:
