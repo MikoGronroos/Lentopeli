@@ -13,6 +13,7 @@ def GameLoop():
     if NoMoreMoney(account.name) == False:
         print ("You lost, game over.")
         sys.exit(0)
+    print(f"You have {db.GetPlayerMoney(account.name)} coins")
     selection = int(input("1 to gamble, 2 to travel, 3 to inventory, 4 to shop and 5 to exit"))
     if selection == 1:
         gamble.gamble()

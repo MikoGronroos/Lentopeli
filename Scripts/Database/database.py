@@ -17,6 +17,12 @@ def DoesPlayerExist(name):
     kursori.execute(sql)
     return len(kursori.fetchall()) > 0
 
+def GetPlayerMoney(name):
+    sql = f'select money from game where screen_name = \'{name}\''
+    kursori.execute(sql)
+    return kursori.fetchone()[0]
+
+
 def AddNewPlayer(name, password):
     sql = f"INSERT INTO game (id, location, password, screen_name, money, newPlayer) VALUES (%s, %s, %s, %s, %s, %s)"
     val = (random.randint(0,100000000), None, password, name, 100, True)

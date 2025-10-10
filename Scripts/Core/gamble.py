@@ -10,6 +10,8 @@ games = {'blackjack': blackjack.Game,
 
 def gamble():
     while True:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"You have {db.GetPlayerMoney(account.name)} coins")
         amountToGamble = int(input("How much would you like to gamble? "))
         db.UpdateMoney(account.name, -amountToGamble)
         selectedGame = 'blackjack'
