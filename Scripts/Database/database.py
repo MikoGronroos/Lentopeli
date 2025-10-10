@@ -41,8 +41,9 @@ def ResetPlayer(name):
     kursori.execute(sql)
 
 def getPlayerContinent(name):
-    sql = f'select continent from airport where screen_name = \'{name}\'' 
+    sql = f'select airport.continent from airport, game where game.screen_name = \'{name}\' and airport.ident = game.location' 
     kursori.execute(sql)
+    return kursori.fetchall()[0][0]
     
 
 def listMaker(continent):
@@ -82,3 +83,27 @@ def takeAllAirports(continent):
     for i in range(5):
         airportList.append(airportTaker(continentList[i]))
     return airportList
+
+def getGameId(name):
+    kursori.execute(f"select id from game where screen_name = \'{name}'")
+    return kursori.fetchall()[0][0]
+
+def getPostcardId(continent):
+    kursori.execute(f"SELECT id FROM postcards WHERE continent =  \'{continent}'")
+    postcard = kursori.fetchone()
+    if not postcard:
+        return
+    postcard_id = postcard[0]
+    return postcard_id
+
+
+def collect_postcard(player_id, postcard_id):
+    print(f"{player_id},{postcard_id}")
+    val = (player_id, postcard_id)
+    sql = "INSERT IGNORE INTO player_postcards (player_id, postcard_id) VALUES (%s, %s)"
+
+    kursori.execute(sql, val)
+
+def show_collected_postcards(player_id):
+    kursori.execute(f"select postcards.name, postcards.continent from player_postcards, postcards where player_id =  \'{player_id}' and postcards.id = player_postcards.postcard_id")
+    return kursori.fetchall()
