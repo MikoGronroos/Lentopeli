@@ -10,9 +10,10 @@ import sys
 def GameLoop():
 
     os.system('cls' if os.name == 'nt' else 'clear')
-    if NoMoreMoney(account.name) == False:
+    if db.HasMoney(account.name) == False:
         print ("You lost, game over.")
         sys.exit(0)
+
     print(f"You have {db.GetPlayerMoney(account.name)} coins")
     print("Collect 6 postcards from different continents to win")
     selection = int(input("1 to gamble, 2 to travel, 3 to inventory, 4 to shop and 5 to exit"))
@@ -27,6 +28,3 @@ def GameLoop():
     if selection == 5:
         sys.exit(0)
     return
-
-def NoMoreMoney(name):
-    return db.CheckMoney(name, 0)
